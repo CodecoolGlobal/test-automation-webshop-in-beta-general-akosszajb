@@ -54,6 +54,9 @@ public class shopPage {
 
     @FindBy(id = "remove")
     private WebElement itemDetailsRemoveFromCartButton;
+    
+    @FindBy(className = "inventory_details_name large_size")
+    private WebElement itemDetailsNameText;
 
     public void selectNameAToZ() {
 
@@ -79,7 +82,7 @@ public class shopPage {
 
     }
 
-    public WebElement getAddToCarButtonByIndex(int index) {
+    public WebElement getAddToCartButtonByIndex(int index) {
 
         return wait.until(ExpectedConditions.elementToBeClickable((By.xpath("(//button[contains(@id, 'add-to-cart')])[" + index + "]"))));
 
@@ -93,7 +96,7 @@ public class shopPage {
 
     public void addItemToCartByIndex(int index) {
 
-        WebElement addToCartButton = getAddToCarButtonByIndex(index);
+        WebElement addToCartButton = getAddToCartButtonByIndex(index);
 
         addToCartButton.click();
     }
@@ -187,6 +190,22 @@ public class shopPage {
             return "0";
 
         }
+    }
+    
+    public void clickShoppingCartButton() {
+        
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartButton)).click();
+        
+    }
+    
+    public String getItemNameOnDetailsPage() {
+        
+        return wait.until(ExpectedConditions.visibilityOf(itemDetailsNameText)).getText();
+        
+    }
+    
+    public List<WebElement> getAllInventoryItems() {
+        return inventoryItems;
     }
     
 }
