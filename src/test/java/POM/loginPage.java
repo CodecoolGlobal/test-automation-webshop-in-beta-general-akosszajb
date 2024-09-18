@@ -14,9 +14,9 @@ public class loginPage {
     private final WebDriverWait wait;
 
     // Constructor
-    public loginPage(WebDriver driver) {
+    public loginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        this.wait = wait;
     }
 
     // Locators

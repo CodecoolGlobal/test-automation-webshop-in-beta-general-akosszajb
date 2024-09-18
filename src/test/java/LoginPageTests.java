@@ -36,7 +36,7 @@ public class LoginPageTests {
 
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        _loginPage = new loginPage(driver);
+        _loginPage = new loginPage(driver, wait);
         
         driver.get("http://www.saucedemo.com/");
     }

@@ -1,4 +1,4 @@
-package java.POM;
+package POM;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,9 +13,9 @@ public class checkoutOverviewPage {
 
     // Constructor
 
-    public checkoutOverviewPage(WebDriver driver) {
+    public checkoutOverviewPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        this.wait = wait;
     }
 
     // Locators
