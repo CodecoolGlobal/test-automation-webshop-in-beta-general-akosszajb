@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class ProductHandlingTests {
-    
+
     private WebDriver driver;
     private WebDriverWait wait;
     private loginPage loginPage;
@@ -21,7 +22,7 @@ public class ProductHandlingTests {
 
     @BeforeEach
     public void setUp() {
-        
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
 
@@ -39,13 +40,25 @@ public class ProductHandlingTests {
         loginPage.loginProcess("standard_user", "secret_sauce");
 
     }
-    
+
     @Test
-    public void testCheckProductsOwnPage(){
+    public void testCheckProductsOwnPage() {
         String itemName = shopPage.getItemNameByIndex(1);
         shopPage.viewItemDetailsByIndex(1);
-        
+
         Assertions.assertTrue(itemName.equals(shopPage.getItemNameOnDetailsPage()));
+    }
+
+    @Test
+    public void testAllProductsOwnPage() {
+        for (WebElement item : shopPage.getAllInventoryItems()) {
+            
+            String itemName = shopPage.getItemNameByIndex(shopPage.getAllInventoryItems().indexOf(item));
+            
+            shopPage.viewItemDetailsByIndex(1);
+
+            Assertions.assertTrue(itemName.equals(shopPage.getItemNameOnDetailsPage()));
+        }
     }
     
     @AfterEach

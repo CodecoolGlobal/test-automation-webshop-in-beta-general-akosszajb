@@ -192,10 +192,20 @@ public class shopPage {
         }
     }
     
+    public void clickShoppingCartButton() {
+        
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartButton)).click();
+        
+    }
+    
     public String getItemNameOnDetailsPage() {
         
         return wait.until(ExpectedConditions.visibilityOf(itemDetailsNameText)).getText();
         
+    }
+    
+    public List<WebElement> getAllInventoryItems() {
+        return inventoryItems;
     }
     
 }

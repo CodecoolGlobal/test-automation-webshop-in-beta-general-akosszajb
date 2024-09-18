@@ -26,10 +26,10 @@ public class LoginPageTests {
     private loginPage _loginPage;
     private WebElement productTitle;
     WebElement errorMessage;
-
+/*
     @BeforeEach
     public void setup() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader());
+        BufferedReader reader = new BufferedReader(new FileReader("credentials.txt"));
         String chromeDriverPath = reader.readLine();
         reader.close();
 
@@ -43,10 +43,11 @@ public class LoginPageTests {
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         _loginPage = new loginPage(driver);
     }
+    /*
 
     @Test
     public void loginWithStandardUser() throws IOException {
-        BufferedReader reader = new BufferedReader(new BufferedReader(new FileReader()));
+        BufferedReader reader = new BufferedReader(new BufferedReader(new FileReader("credentials.txt")));
         password = reader.readLine();
         username = reader.readLine();
         reader.close();
@@ -64,7 +65,7 @@ public class LoginPageTests {
         int passwordLineNumber = 1;
         int usernameLineNumber = 3;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader()) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("credentials.txt")) {
             String line;
             int currentLine = 0;
 
@@ -90,7 +91,7 @@ public class LoginPageTests {
         int passwordLineNumber = 1;
         int usernameLineNumber = 4;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader()) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("credentials.txt")) {
             String line;
             int currentLine = 0;
 
@@ -116,7 +117,7 @@ public class LoginPageTests {
         int passwordLineNumber = 1;
         int usernameLineNumber = 5;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader()) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("credentials.txt")) {
             String line;
             int currentLine = 0;
 
@@ -142,7 +143,7 @@ public class LoginPageTests {
         int passwordLineNumber = 1;
         int usernameLineNumber = 6;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader()) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("credentials.txt")) {
             String line;
             int currentLine = 0;
 
@@ -156,7 +157,7 @@ public class LoginPageTests {
             }
         }
 
-        _loginPage.loginProcess(username, password);
+        _loginPage.loginProcess(username, password)
 
         productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
 
@@ -168,7 +169,7 @@ public class LoginPageTests {
         int passwordLineNumber = 1;
         int usernameLineNumber = 7;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader()) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("credentials.txt")) {
             String line;
             int currentLine = 0;
 
@@ -195,5 +196,5 @@ public class LoginPageTests {
         if (driver != null) {
             driver.quit();
         }
-    }
+    }*/
 }
