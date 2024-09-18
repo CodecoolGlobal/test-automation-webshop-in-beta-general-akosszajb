@@ -52,4 +52,9 @@ public class loginPage {
         getPasswordInput().sendKeys(password);
         getLoginButton().click();
     }
+
+    public boolean isLoginPageVisible() {
+        wait.until(ExpectedConditions.visibilityOf(getLoginButton()));
+        return getLoginButton().isDisplayed();
+    }
 }
