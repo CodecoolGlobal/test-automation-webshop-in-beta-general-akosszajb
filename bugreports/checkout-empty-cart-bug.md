@@ -37,4 +37,4 @@ Actual   :true
 
 ## Priority:
 **High**  
-This bug allows users to complete purchases without any items in the cart, which can lead to incorrect orders or system abuse.
+This bug allows users to complete purchases without any items in the cart, which can lead to incorrect orders, system abuse or bad user experience.
