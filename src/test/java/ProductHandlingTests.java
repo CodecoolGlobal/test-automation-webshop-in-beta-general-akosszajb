@@ -35,7 +35,7 @@ public class ProductHandlingTests {
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 
-        loginPage = new loginPage(driver);
+        loginPage = new loginPage(driver, wait);
         shopPage = new shopPage(driver, wait);
         loginPage.loginProcess("standard_user", "secret_sauce");
 

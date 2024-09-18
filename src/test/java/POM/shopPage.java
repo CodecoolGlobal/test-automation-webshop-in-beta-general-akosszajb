@@ -1,5 +1,4 @@
 package POM;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -55,7 +54,7 @@ public class shopPage {
     @FindBy(id = "remove")
     private WebElement itemDetailsRemoveFromCartButton;
     
-    @FindBy(className = "inventory_details_name large_size")
+    @FindBy(xpath = "//div[data-test = 'inventory-item-name']")
     private WebElement itemDetailsNameText;
 
     public void selectNameAToZ() {
