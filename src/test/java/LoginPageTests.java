@@ -107,5 +107,5 @@ public class LoginPageTests {
         if (driver != null) {
             driver.quit();
         }
-    }
+    }  
 }

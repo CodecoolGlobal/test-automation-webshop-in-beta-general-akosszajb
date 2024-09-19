@@ -11,7 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class yourCartPage {
     private WebDriver driver;
     private WebDriverWait wait;
-
+    
+    
     @FindBy(id = "checkout")
     private WebElement checkoutButton;
 
@@ -46,4 +47,5 @@ public class yourCartPage {
         wait.until(ExpectedConditions.visibilityOf(cartList));
         removeFromCart(location).click();
     }
+    
 }
