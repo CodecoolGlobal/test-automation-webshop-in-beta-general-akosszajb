@@ -23,7 +23,7 @@ public class navbar {
     @FindBy(id = "about_sidebar_link")
     private WebElement aboutLink;
 
-    @FindBy(id = "id='logout_sidebar_link")
+    @FindBy(id = "logout_sidebar_link")
     private WebElement logoutLink;
 
     @FindBy(id = "reset_sidebar_link")
@@ -56,7 +56,9 @@ public class navbar {
     }
 
     public void clickResetLink() {
-        wait.until(ExpectedConditions.visibilityOf(navSideBarOpen));
+        wait.until(ExpectedConditions.visibilityOf(reactMenuButton));
+        resetLink.click();
+        wait.until(ExpectedConditions.visibilityOf(logoutLink));
         resetLink.click();
     }
 
