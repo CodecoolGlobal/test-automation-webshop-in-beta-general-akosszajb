@@ -47,4 +47,5 @@ public class yourCartPage {
         wait.until(ExpectedConditions.visibilityOf(cartList));
         removeFromCart(location).click();
     }
+    
 }
