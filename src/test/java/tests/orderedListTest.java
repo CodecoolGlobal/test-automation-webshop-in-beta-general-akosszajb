@@ -5,7 +5,9 @@ import POM.loginPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -21,8 +23,8 @@ public class orderedListTest {
     private shopPage shopPage;
 
 
-    @Before
-    public void setUp(){
+    @BeforeEach
+    public void setup(){
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
@@ -82,7 +84,7 @@ public class orderedListTest {
 
 
 
-    @After
+    @AfterEach
     public void tearDown(){
         driver.quit();
     }
