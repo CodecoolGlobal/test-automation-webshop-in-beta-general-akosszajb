@@ -1,3 +1,5 @@
+package tests;
+
 import POM.loginPage;
 import POM.shopPage;
 import POM.yourCartPage;
