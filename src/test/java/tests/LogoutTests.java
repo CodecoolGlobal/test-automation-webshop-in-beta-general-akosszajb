@@ -3,9 +3,10 @@ package tests;
 import POM.loginPage;
 import POM.navbar;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,8 +20,8 @@ public class LogoutTests {
     private loginPage login;
     private navbar navbar;
 
-    @Before
-    public void setUp(){
+    @BeforeEach
+    public void setup(){
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
@@ -29,8 +30,6 @@ public class LogoutTests {
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         login = new loginPage(driver,wait);
         navbar = new navbar(driver,wait);
-
-        String asd = System.getenv("PW_FOR_ALL");
     }
 
     @Test
@@ -43,7 +42,7 @@ public class LogoutTests {
         Assertions.assertTrue(login.isLoginPageVisible());
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         driver.quit();
     }
