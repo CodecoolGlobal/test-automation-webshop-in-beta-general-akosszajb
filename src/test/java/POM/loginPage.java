@@ -11,7 +11,6 @@ import java.time.Duration;
 public class loginPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
-    
     public loginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
