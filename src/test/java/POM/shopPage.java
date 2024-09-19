@@ -57,6 +57,13 @@ public class shopPage {
     @FindBy(xpath = "//div[data-test = 'inventory-item-name']")
     private WebElement itemDetailsNameText;
 
+    @FindBy(css = "html > body > div > div > div > div:nth-of-type(2) > div > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a > div")
+    private WebElement firstItemName;
+
+    public String getFirstItemName() {
+        return firstItemName.getText();
+    }
+
     public void selectNameAToZ() {
 
         wait.until(ExpectedConditions.visibilityOf(nameAToZOption)).click();
