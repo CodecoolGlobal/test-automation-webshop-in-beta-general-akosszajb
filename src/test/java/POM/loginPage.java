@@ -11,7 +11,6 @@ import java.time.Duration;
 public class loginPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
-    
     public loginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
@@ -51,5 +50,10 @@ public class loginPage {
         getUsernameInput().sendKeys(username);
         getPasswordInput().sendKeys(password);
         getLoginButton().click();
+    }
+
+    public boolean isLoginPageVisible() {
+        wait.until(ExpectedConditions.visibilityOf(getLoginButton()));
+        return getLoginButton().isDisplayed();
     }
 }

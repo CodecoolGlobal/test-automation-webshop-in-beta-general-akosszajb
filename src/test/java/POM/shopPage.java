@@ -42,7 +42,7 @@ public class shopPage {
     @FindBy(xpath = "//option[@value='hilo']")
     private WebElement priceHighToLowOption;
 
-    @FindBy(className = "shopping-cart-link")
+    @FindBy(css = "a.shopping_cart_link")
     private WebElement shoppingCartButton;
 
     @FindBy(css = "a.shopping_cart_link span.shopping_cart_badge")
@@ -54,7 +54,7 @@ public class shopPage {
     @FindBy(id = "remove")
     private WebElement itemDetailsRemoveFromCartButton;
     
-    @FindBy(xpath = "//div[data-test = 'inventory-item-name']")
+    @FindBy(xpath = "//div[@data-test = 'inventory-item-name']")
     private WebElement itemDetailsNameText;
 
     @FindBy(css = "html > body > div > div > div > div:nth-of-type(2) > div > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a > div")
@@ -63,6 +63,9 @@ public class shopPage {
     public String getFirstItemName() {
         return firstItemName.getText();
     }
+
+    @FindBy(xpath = "//div[@data-test = 'inventory-item-desc']")
+    private WebElement itemDetailsDescriptionText;
 
     public void selectNameAToZ() {
 
@@ -149,7 +152,7 @@ public class shopPage {
     }
 
     public String getItemNameByIndex(int index) {
-
+        
         return getItemByIndex(index).getText();
 
     }
@@ -159,6 +162,8 @@ public class shopPage {
         WebElement itemElement = wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("(//div[contains(@class, 'inventory_item_name')])[" + index + "]")));
 
+        System.out.println(itemElement.getText());
+        
         itemElement.click();
 
     }
@@ -210,8 +215,15 @@ public class shopPage {
         
     }
     
+    public WebElement getItemDescriptionOnDetailsPage() {
+        
+        return wait.until(ExpectedConditions.visibilityOf(itemDetailsDescriptionText));
+        
+    }
+    
     public List<WebElement> getAllInventoryItems() {
-        return inventoryItems;
+        
+        return wait.until(ExpectedConditions.visibilityOfAllElements(inventoryItems));
     }
     
 }
