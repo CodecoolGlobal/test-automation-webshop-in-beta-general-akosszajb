@@ -10,15 +10,12 @@ import java.time.Duration;
 public class checkoutOverviewPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
-
-    // Constructor
-
+    
     public checkoutOverviewPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
 
-    // Locators
     private WebElement getSwagLabsTitle() {
         return driver.findElement(By.cssSelector(".app_logo"));
     }
@@ -82,8 +79,7 @@ public class checkoutOverviewPage {
     private WebElement getFinishButton() {
         return driver.findElement(By.cssSelector("button[data-test='finish']"));
     }
-
-    // Methods to interact with the page
+    
 
     public void clickFinishButton() {
         getFinishButton().click();
