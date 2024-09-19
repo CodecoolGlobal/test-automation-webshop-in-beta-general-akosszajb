@@ -137,7 +137,6 @@ public class shopPage {
 
         String buttonText = getAddOrRemoveStateOfButtonByIndex(index);
 
-        System.out.println(buttonText);
 
         return buttonText.equalsIgnoreCase("Remove");
 
@@ -162,8 +161,6 @@ public class shopPage {
         WebElement itemElement = wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("(//div[contains(@class, 'inventory_item_name')])[" + index + "]")));
 
-        System.out.println(itemElement.getText());
-        
         itemElement.click();
 
     }
