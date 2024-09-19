@@ -1,12 +1,10 @@
+package tests;
+
 import POM.checkoutInfoPage;
-import org.openqa.selenium.support.PageFactory;
 import POM.loginPage;
-import POM.navbar;
 import POM.shopPage;
 import POM.yourCartPage;
-import POM.checkoutInfoPage;
 import POM.checkoutOverviewPage;
-import POM.checkoutCompletePage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,14 +14,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 import java.time.Duration;
-import java.io.BufferedReader;
 import java.io.IOException;
 
 public class CheckoutTests {
