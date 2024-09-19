@@ -44,11 +44,11 @@ public class ProductHandlingTests {
         
         yourCartPage = new yourCartPage(driver, wait);
         
-        String u = System.getProperty("STANDARD_USER");
+        String u = System.getenv("STANDARD_USER");
         
-        String pw = System.getProperty("PW_FOR_ALL");
+        String pw = System.getenv("PW_FOR_ALL");
         
-        loginPage.loginProcess("standard_user", "secret_sauce");
+        loginPage.loginProcess(u, pw);
 
     }
     
