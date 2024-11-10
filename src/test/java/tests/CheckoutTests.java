@@ -11,7 +11,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.io.IOException;
 
 public class CheckoutTests {
     private String username;
