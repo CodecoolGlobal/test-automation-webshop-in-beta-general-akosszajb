@@ -143,7 +143,6 @@ public class ShopPage {
     }
 
     public String getNumberOfItemsInCart() {
-
         try {
             WebElement cartIconElement = wait.until(ExpectedConditions.visibilityOf(shoppingCartIconNumbers));
             return cartIconElement.getText();

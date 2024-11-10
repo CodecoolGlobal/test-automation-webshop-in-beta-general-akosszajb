@@ -16,33 +16,28 @@ public class LoginPage {
         this.wait = wait;
     }
 
-    // Locators
     private WebElement findErrorMessage(){
         return driver.findElement(By.xpath("//h3[@data-test='error']"));
     }
 
-    private WebElement getUsernameInput() {
-        return driver.findElement(By.id("user-name"));
-    }
+    @FindBy(id = "user-name")
+    private WebElement usernameInput;
 
-    private WebElement getPasswordInput() {
-        return driver.findElement(By.id("password"));
-    }
+    @FindBy(id = "password")
+    private WebElement passwordInput;
 
-    private WebElement getLoginButton() {
-        return driver.findElement(By.id("login-button"));
-    }
+    @FindBy(id = "login-button")
+    private WebElement loginButton;
 
 
-    // Method to login process
     public void loginProcess(String username, String password) {
+        usernameInput.clear();
+        passwordInput.clear();
 
-        getUsernameInput().clear();
-        getPasswordInput().clear();
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
 
-        getUsernameInput().sendKeys(username);
-        getPasswordInput().sendKeys(password);
-        getLoginButton().click();
+        loginButton.click();
     }
 
     public WebElement getErrorMessage() {
@@ -50,7 +45,7 @@ public class LoginPage {
     }
 
     public boolean isLoginPageVisible() {
-        wait.until(ExpectedConditions.visibilityOf(getLoginButton()));
-        return getLoginButton().isDisplayed();
+        wait.until(ExpectedConditions.visibilityOf(loginButton));
+        return loginButton.isDisplayed();
     }
 }

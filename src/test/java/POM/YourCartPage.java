@@ -11,13 +11,11 @@ public class YourCartPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
 
-
     @FindBy(id = "checkout")
     private WebElement checkoutButton;
 
     @FindBy(css = "div[class='cart_list']")
     private WebElement cartList;
-
 
     public YourCartPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -28,7 +26,5 @@ public class YourCartPage {
     public void goToCheckout() {
         wait.until(ExpectedConditions.visibilityOf(cartList));
         checkoutButton.click();
-
     }
-
 }
