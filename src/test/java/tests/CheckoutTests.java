@@ -30,7 +30,7 @@ public class CheckoutTests {
     private CheckoutCompletePage checkoutCompletePage;
 
     @BeforeEach
-    public void setup() throws IOException {
+    public void setup(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
         options.addArguments("--start-maximized");
@@ -55,7 +55,7 @@ public class CheckoutTests {
     }
 
     @Test
-    public void checkoutWithEmptyCartTest() throws IOException {
+    public void checkoutWithEmptyCartTest(){
 
         shopPage.clickShoppingCartButton();
         yourCartPage.goToCheckout();
@@ -67,7 +67,7 @@ public class CheckoutTests {
     }
 
     @Test
-    public void checkoutWithOneItemInCart() throws IOException {
+    public void checkoutWithOneItemInCart(){
         shopPage.getAddToCartButtonByIndex(1);
         shopPage.clickShoppingCartButton();
         yourCartPage.goToCheckout();
@@ -79,7 +79,7 @@ public class CheckoutTests {
     }
 
     @Test
-    public void checkoutWithTwoItemInCart() throws IOException {
+    public void checkoutWithTwoItemInCart(){
         shopPage.getAddToCartButtonByIndex(1);
         shopPage.getAddToCartButtonByIndex(2);
         shopPage.clickShoppingCartButton();
@@ -94,8 +94,6 @@ public class CheckoutTests {
 
     @AfterEach
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        driver.quit();
     }
 }
