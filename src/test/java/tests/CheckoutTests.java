@@ -1,17 +1,11 @@
 package tests;
 
-import POM.CheckoutInfoPage;
-import POM.LoginPage;
-import POM.ShopPage;
-import POM.YourCartPage;
-import POM.CheckoutOverviewPage;
+import POM.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -27,12 +21,13 @@ public class CheckoutTests {
     private String zipCode;
     private WebDriver driver;
     private WebDriverWait wait;
+
     private LoginPage loginPage;
     private ShopPage shopPage;
     private YourCartPage yourCartPage;
     private CheckoutInfoPage checkoutInfoPage;
     private CheckoutOverviewPage checkoutOverviewPage;
-    private WebElement backHomeButton;
+    private CheckoutCompletePage checkoutCompletePage;
 
     @BeforeEach
     public void setup() throws IOException {
@@ -47,6 +42,7 @@ public class CheckoutTests {
         yourCartPage = new YourCartPage(driver, wait);
         checkoutInfoPage = new CheckoutInfoPage(driver, wait);
         checkoutOverviewPage = new CheckoutOverviewPage(driver, wait);
+        checkoutCompletePage = new CheckoutCompletePage(driver, wait);
 
         username = System.getenv("STANDARD_USER");
         passwordForAll = System.getenv("PW_FOR_ALL");
@@ -67,9 +63,7 @@ public class CheckoutTests {
         checkoutInfoPage.submitFormContinue();
         checkoutOverviewPage.clickFinishButton();
 
-        backHomeButton = driver.findElement(By.id("back-to-products"));
-
-        Assertions.assertFalse(backHomeButton.isDisplayed(), "Checkout Complete - process should not be successful, because cart is empty!");
+        Assertions.assertFalse(checkoutCompletePage.getBackHomeButton().isDisplayed(), "Checkout Complete - process should not be successful, because cart is empty!");
     }
 
     @Test
@@ -81,9 +75,7 @@ public class CheckoutTests {
         checkoutInfoPage.submitFormContinue();
         checkoutOverviewPage.clickFinishButton();
 
-        backHomeButton = driver.findElement(By.id("back-to-products"));
-
-        Assertions.assertTrue(backHomeButton.isDisplayed(), "Checkout Complete - process should be successful with valid data and one item!");
+        Assertions.assertTrue(checkoutCompletePage.getBackHomeButton().isDisplayed(), "Checkout Complete - process should be successful with valid data and one item!");
     }
 
     @Test
@@ -96,9 +88,8 @@ public class CheckoutTests {
         checkoutInfoPage.submitFormContinue();
         checkoutOverviewPage.clickFinishButton();
 
-        backHomeButton = driver.findElement(By.id("back-to-products"));
 
-        Assertions.assertTrue(backHomeButton.isDisplayed(), "Checkout Complete - process should be successful with valid data and two items!");
+        Assertions.assertTrue(checkoutCompletePage.getBackHomeButton().isDisplayed(), "Checkout Complete - process should be successful with valid data and two items!");
     }
 
     @AfterEach
