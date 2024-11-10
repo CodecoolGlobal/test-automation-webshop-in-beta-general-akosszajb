@@ -49,7 +49,7 @@ public class CheckoutTests {
         lastName = System.getenv("LAST_NAME");
         zipCode = System.getenv("ZIP_CODE");
 
-        driver.get("http://www.saucedemo.com/");
+        driver.get("https://www.saucedemo.com/");
         loginPage.loginProcess(username, passwordForAll);
     }
 

@@ -27,8 +27,7 @@ public class LoginPageTests {
 
 
     @BeforeEach
-    public void setup() throws IOException {
-        passwordForAll = System.getenv("PW_FOR_ALL");
+    public void setup(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
         options.addArguments("--start-maximized");
@@ -37,7 +36,8 @@ public class LoginPageTests {
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         loginPage = new LoginPage(driver, wait);
 
-        driver.get("http://www.saucedemo.com/");
+        passwordForAll = System.getenv("PW_FOR_ALL");
+        driver.get("https://www.saucedemo.com/");
     }
 
     @Test
