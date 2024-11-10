@@ -13,8 +13,8 @@ import java.util.List;
 
 public class ShopPage {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     public ShopPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
