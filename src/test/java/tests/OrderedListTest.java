@@ -37,7 +37,9 @@ public class OrderedListTest {
 
     @Test
     public void orderedListHighToLow() {
-        loginPage.loginProcess(System.getenv("STANDARD_USER"), System.getenv("PW_FOR_ALL"));
+        String username = System.getenv("STANDARD_USER");
+        String password = System.getenv("STANDARD_PASSWORD");
+        loginPage.loginProcess(username,password);
         shopPage.selectPriceHighToLow();
 
         String expected = "Sauce Labs Fleece Jacket";
@@ -48,7 +50,9 @@ public class OrderedListTest {
 
     @Test
     public void orderedListLowToHigh() {
-        loginPage.loginProcess(System.getenv("STANDARD_USER"), System.getenv("PW_FOR_ALL"));
+        String username = System.getenv("STANDARD_USER");
+        String password = System.getenv("STANDARD_PASSWORD");
+        loginPage.loginProcess(username,password);
         shopPage.selectPriceLowToHigh();
 
         String expected = "Sauce Labs Onesie";
@@ -59,7 +63,9 @@ public class OrderedListTest {
 
     @Test
     public void orderedListAToZ() {
-        loginPage.loginProcess(System.getenv("STANDARD_USER"), System.getenv("PW_FOR_ALL"));
+        String username = System.getenv("STANDARD_USER");
+        String password = System.getenv("STANDARD_PASSWORD");
+        loginPage.loginProcess(username,password);
         shopPage.selectNameAToZ();
 
         String expected = "Sauce Labs Backpack";
@@ -70,7 +76,9 @@ public class OrderedListTest {
 
     @Test
     public void orderedListZToA() {
-        loginPage.loginProcess(System.getenv("STANDARD_USER"), System.getenv("PW_FOR_ALL"));
+        String username = System.getenv("STANDARD_USER");
+        String password = System.getenv("STANDARD_PASSWORD");
+        loginPage.loginProcess(username,password);
         shopPage.selectNameZToA();
 
         String expected = "Test.allTheThings() T-Shirt (Red)";
