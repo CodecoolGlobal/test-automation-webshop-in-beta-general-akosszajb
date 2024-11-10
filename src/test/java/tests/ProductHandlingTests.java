@@ -2,7 +2,6 @@ package tests;
 
 import POM.LoginPage;
 import POM.ShopPage;
-import POM.YourCartPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +19,6 @@ public class ProductHandlingTests {
     private WebDriverWait wait;
     private LoginPage loginPage;
     private ShopPage shopPage;
-    private YourCartPage yourCartPage;
 
 
     @BeforeEach
@@ -36,7 +34,6 @@ public class ProductHandlingTests {
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         loginPage = new LoginPage(driver, wait);
         shopPage = new ShopPage(driver, wait);
-        yourCartPage = new YourCartPage(driver, wait);
 
         String u = System.getenv("STANDARD_USER");
         String pw = System.getenv("PW_FOR_ALL");
@@ -46,20 +43,16 @@ public class ProductHandlingTests {
 
     @Test
     public void testCheckAllProductsOwnPageWithDetails() {
-
         int size = shopPage.getAllInventoryItems().size();
 
         for (int i = 1; i <= size; i++) {
-
             String itemName = shopPage.getItemNameByIndex(i);
             shopPage.viewItemDetailsByIndex(i);
 
             Assertions.assertEquals(itemName, shopPage.getItemNameOnDetailsPage());
             Assertions.assertTrue(shopPage.getItemDescriptionOnDetailsPage().isDisplayed());
             shopPage.clickBackToProductsButton();
-
         }
-
     }
 
     @Test
