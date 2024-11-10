@@ -1,16 +1,14 @@
 package tests;
 
 import POM.LoginPage;
+import POM.ShopPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -21,8 +19,8 @@ public class LoginPageTests {
     private WebDriver driver;
     private WebDriverWait wait;
     private LoginPage loginPage;
-    private WebElement productTitle;
-    WebElement errorMessage;
+    private ShopPage shopPage;
+
     private String passwordForAll;
 
 
@@ -35,76 +33,68 @@ public class LoginPageTests {
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         loginPage = new LoginPage(driver, wait);
+        shopPage = new ShopPage(driver, wait);
 
         passwordForAll = System.getenv("PW_FOR_ALL");
         driver.get("https://www.saucedemo.com/");
     }
 
     @Test
-    public void loginWithStandardUser() throws IOException {
+    public void loginWithStandardUser(){
         username = System.getenv("STANDARD_USER");
 
         loginPage.loginProcess(username, passwordForAll);
 
-        productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
-        Assertions.assertTrue(productTitle.isDisplayed(), "Products title is not displayed");
+        Assertions.assertTrue(shopPage.getProductsTitle().isDisplayed(), "Products title is not displayed");
     }
 
     @Test
-    public void loginWithLockedOutUser() throws IOException {
+    public void loginWithLockedOutUser(){
         username = System.getenv("LOCKED_OUT_USER");
 
         loginPage.loginProcess(username, passwordForAll);
 
-        errorMessage = driver.findElement(By.xpath("//h3[@data-test='error']"));
-        Assertions.assertTrue(errorMessage.isDisplayed(), "Error message is not displayed (Epic sadface: Sorry, this user has been locked out.)");
+        Assertions.assertTrue(loginPage.getErrorMessage().isDisplayed(), "Error message is not displayed (Epic sadface: Sorry, this user has been locked out.)");
     }
 
     @Test
-    public void loginWithProblemUser() throws IOException {
+    public void loginWithProblemUser(){
         username = System.getenv("PROBLEM_USER");
 
         loginPage.loginProcess(username, passwordForAll);
 
-        productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
-        Assertions.assertTrue(productTitle.isDisplayed(), "Products title is not displayed");
+        Assertions.assertTrue(shopPage.getProductsTitle().isDisplayed(), "Products title is not displayed");
     }
 
     @Test
-    public void loginWithPerformanceGlitchUser() throws IOException {
+    public void loginWithPerformanceGlitchUser(){
         username = System.getenv("PERFORMANCE_GLITCH_USER");
 
         loginPage.loginProcess(username, passwordForAll);
 
-        productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
-        Assertions.assertTrue(productTitle.isDisplayed(), "Products title is not displayed");
+        Assertions.assertTrue(shopPage.getProductsTitle().isDisplayed(), "Products title is not displayed");
     }
 
     @Test
-    public void loginWithErrorUser() throws IOException {
+    public void loginWithErrorUser(){
         username = System.getenv("ERROR_USER");
 
         loginPage.loginProcess(username, passwordForAll);
 
-        productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
-        Assertions.assertTrue(productTitle.isDisplayed(), "Products title is not displayed");
+        Assertions.assertTrue(shopPage.getProductsTitle().isDisplayed(), "Products title is not displayed");
     }
 
     @Test
-    public void loginWithVisualUser() throws IOException {
+    public void loginWithVisualUser(){
         username = System.getenv("VISUAL_USER");
 
         loginPage.loginProcess(username, passwordForAll);
 
-
-        productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
-        Assertions.assertTrue(productTitle.isDisplayed(), "Products title is not displayed");
+        Assertions.assertTrue(shopPage.getProductsTitle().isDisplayed(), "Products title is not displayed");
     }
 
     @AfterEach
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        driver.quit();
     }
 }

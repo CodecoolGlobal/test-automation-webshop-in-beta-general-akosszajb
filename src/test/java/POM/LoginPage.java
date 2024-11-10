@@ -3,6 +3,7 @@ package POM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -16,6 +17,10 @@ public class LoginPage {
     }
 
     // Locators
+    private WebElement findErrorMessage(){
+        return driver.findElement(By.xpath("//h3[@data-test='error']"));
+    }
+
     private WebElement getSwagLabsTitle() {
         return driver.findElement(By.xpath("//a[text()='Swag Labs']"));
     }
@@ -49,6 +54,10 @@ public class LoginPage {
         getUsernameInput().sendKeys(username);
         getPasswordInput().sendKeys(password);
         getLoginButton().click();
+    }
+
+    public WebElement getErrorMessage() {
+        return findErrorMessage();
     }
 
     public boolean isLoginPageVisible() {
