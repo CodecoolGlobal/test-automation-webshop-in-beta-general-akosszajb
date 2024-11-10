@@ -50,12 +50,11 @@ public class CheckoutTests {
         zipCode = System.getenv("ZIP_CODE");
 
         driver.get("https://www.saucedemo.com/");
-        loginPage.loginProcess(username, passwordForAll);
     }
 
     @Test
     public void checkoutWithEmptyCartTest(){
-
+        loginPage.loginProcess(username, passwordForAll);
         shopPage.clickShoppingCartButton();
         yourCartPage.goToCheckout();
         checkoutInfoPage.fillForm(firstName, lastName, zipCode);
@@ -67,6 +66,7 @@ public class CheckoutTests {
 
     @Test
     public void checkoutWithOneItemInCart(){
+        loginPage.loginProcess(username, passwordForAll);
         shopPage.getAddToCartButtonByIndex(1);
         shopPage.clickShoppingCartButton();
         yourCartPage.goToCheckout();
@@ -79,6 +79,7 @@ public class CheckoutTests {
 
     @Test
     public void checkoutWithTwoItemInCart(){
+        loginPage.loginProcess(username, passwordForAll);
         shopPage.getAddToCartButtonByIndex(1);
         shopPage.getAddToCartButtonByIndex(2);
         shopPage.clickShoppingCartButton();
