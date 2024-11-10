@@ -1,4 +1,5 @@
 package POM;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -53,7 +54,7 @@ public class ShopPage {
 
     @FindBy(id = "remove")
     private WebElement itemDetailsRemoveFromCartButton;
-    
+
     @FindBy(xpath = "//div[@data-test = 'inventory-item-name']")
     private WebElement itemDetailsNameText;
 
@@ -151,7 +152,7 @@ public class ShopPage {
     }
 
     public String getItemNameByIndex(int index) {
-        
+
         return getItemByIndex(index).getText();
 
     }
@@ -199,28 +200,28 @@ public class ShopPage {
 
         }
     }
-    
+
     public void clickShoppingCartButton() {
-        
+
         wait.until(ExpectedConditions.elementToBeClickable(shoppingCartButton)).click();
-        
+
     }
-    
+
     public String getItemNameOnDetailsPage() {
-        
+
         return wait.until(ExpectedConditions.visibilityOf(itemDetailsNameText)).getText();
-        
+
     }
-    
+
     public WebElement getItemDescriptionOnDetailsPage() {
-        
+
         return wait.until(ExpectedConditions.visibilityOf(itemDetailsDescriptionText));
-        
+
     }
-    
+
     public List<WebElement> getAllInventoryItems() {
-        
+
         return wait.until(ExpectedConditions.visibilityOfAllElements(inventoryItems));
     }
-    
+
 }

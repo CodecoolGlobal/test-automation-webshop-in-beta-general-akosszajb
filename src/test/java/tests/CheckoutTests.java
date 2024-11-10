@@ -32,8 +32,8 @@ public class CheckoutTests {
     private YourCartPage yourCartPage;
     private CheckoutInfoPage checkoutInfoPage;
     private CheckoutOverviewPage checkoutOverviewPage;
-    private WebElement backHomeButton; 
-      
+    private WebElement backHomeButton;
+
     @BeforeEach
     public void setup() throws IOException {
         ChromeOptions options = new ChromeOptions();
@@ -41,13 +41,13 @@ public class CheckoutTests {
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        
+
         loginPage = new LoginPage(driver, wait);
         shopPage = new ShopPage(driver, wait);
         yourCartPage = new YourCartPage(driver, wait);
         checkoutInfoPage = new CheckoutInfoPage(driver, wait);
         checkoutOverviewPage = new CheckoutOverviewPage(driver, wait);
-        
+
         username = System.getenv("STANDARD_USER");
         passwordForAll = System.getenv("PW_FOR_ALL");
         firstName = System.getenv("FIRST_NAME");
@@ -57,7 +57,7 @@ public class CheckoutTests {
         driver.get("http://www.saucedemo.com/");
         loginPage.loginProcess(username, passwordForAll);
     }
-    
+
     @Test
     public void checkoutWithEmptyCartTest() throws IOException {
 
@@ -66,7 +66,7 @@ public class CheckoutTests {
         checkoutInfoPage.fillForm(firstName, lastName, zipCode);
         checkoutInfoPage.submitFormContinue();
         checkoutOverviewPage.clickFinishButton();
-        
+
         backHomeButton = driver.findElement(By.id("back-to-products"));
 
         Assertions.assertFalse(backHomeButton.isDisplayed(), "Checkout Complete - process should not be successful, because cart is empty!");
@@ -74,7 +74,7 @@ public class CheckoutTests {
 
     @Test
     public void checkoutWithOneItemInCart() throws IOException {
-       shopPage.getAddToCartButtonByIndex(1);
+        shopPage.getAddToCartButtonByIndex(1);
         shopPage.clickShoppingCartButton();
         yourCartPage.goToCheckout();
         checkoutInfoPage.fillForm(firstName, lastName, zipCode);
@@ -85,6 +85,7 @@ public class CheckoutTests {
 
         Assertions.assertTrue(backHomeButton.isDisplayed(), "Checkout Complete - process should be successful with valid data and one item!");
     }
+
     @Test
     public void checkoutWithTwoItemInCart() throws IOException {
         shopPage.getAddToCartButtonByIndex(1);
@@ -99,7 +100,7 @@ public class CheckoutTests {
 
         Assertions.assertTrue(backHomeButton.isDisplayed(), "Checkout Complete - process should be successful with valid data and two items!");
     }
-   
+
     @AfterEach
     public void tearDown() {
         if (driver != null) {

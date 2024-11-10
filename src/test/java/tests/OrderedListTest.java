@@ -22,7 +22,7 @@ public class OrderedListTest {
 
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
@@ -36,7 +36,7 @@ public class OrderedListTest {
     }
 
     @Test
-    public void orderedListHighToLow(){
+    public void orderedListHighToLow() {
         loginPage.loginProcess(System.getenv("STANDARD_USER"), System.getenv("PW_FOR_ALL"));
         shopPage.selectPriceHighToLow();
 
@@ -47,7 +47,7 @@ public class OrderedListTest {
     }
 
     @Test
-    public void orderedListLowToHigh(){
+    public void orderedListLowToHigh() {
         loginPage.loginProcess(System.getenv("STANDARD_USER"), System.getenv("PW_FOR_ALL"));
         shopPage.selectPriceLowToHigh();
 
@@ -58,7 +58,7 @@ public class OrderedListTest {
     }
 
     @Test
-    public void orderedListAToZ(){
+    public void orderedListAToZ() {
         loginPage.loginProcess(System.getenv("STANDARD_USER"), System.getenv("PW_FOR_ALL"));
         shopPage.selectNameAToZ();
 
@@ -69,7 +69,7 @@ public class OrderedListTest {
     }
 
     @Test
-    public void orderedListZToA(){
+    public void orderedListZToA() {
         loginPage.loginProcess(System.getenv("STANDARD_USER"), System.getenv("PW_FOR_ALL"));
         shopPage.selectNameZToA();
 
@@ -80,10 +80,8 @@ public class OrderedListTest {
     }
 
 
-
-
     @AfterEach
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }

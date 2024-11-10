@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class YourCartPage {
     private WebDriver driver;
     private WebDriverWait wait;
-    
-    
+
+
     @FindBy(id = "checkout")
     private WebElement checkoutButton;
 
@@ -22,9 +22,9 @@ public class YourCartPage {
     @FindBy(css = "div[class='cart_list']")
     private WebElement cartList;
 
-    private WebElement removeFromCart(int location){
+    private WebElement removeFromCart(int location) {
         return driver.findElement(By.cssSelector(String.format
-                ("html > body > div > div > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(%s) > div:nth-of-type(2) > div:nth-of-type(2) > button", location+2)));
+                ("html > body > div > div > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(%s) > div:nth-of-type(2) > div:nth-of-type(2) > button", location + 2)));
     }
 
     public YourCartPage(WebDriver driver, WebDriverWait wait) {
@@ -33,19 +33,20 @@ public class YourCartPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void goToCheckout(){
+    public void goToCheckout() {
         wait.until(ExpectedConditions.visibilityOf(cartList));
         checkoutButton.click();
 
     }
-    public void goToContinueShopping(){
+
+    public void goToContinueShopping() {
         wait.until(ExpectedConditions.visibilityOf(cartList));
         continueShoppingButton.click();
     }
 
-    public void removeYourFromCart(int location){
+    public void removeYourFromCart(int location) {
         wait.until(ExpectedConditions.visibilityOf(cartList));
         removeFromCart(location).click();
     }
-    
+
 }

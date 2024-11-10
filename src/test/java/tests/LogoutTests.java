@@ -20,19 +20,19 @@ public class LogoutTests {
     private Navbar navbar;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        login = new LoginPage(driver,wait);
-        navbar = new Navbar(driver,wait);
+        login = new LoginPage(driver, wait);
+        navbar = new Navbar(driver, wait);
     }
 
     @Test
-    public void logoutSuccess(){
+    public void logoutSuccess() {
         driver.get("https://www.saucedemo.com/");
         login.loginProcess(System.getenv("STANDARD_USER"), System.getenv("PW_FOR_ALL"));
         navbar.clickReactMenuButton();

@@ -24,8 +24,8 @@ public class LoginPageTests {
     private WebElement productTitle;
     WebElement errorMessage;
     private String passwordForAll;
-     
-    
+
+
     @BeforeEach
     public void setup() throws IOException {
         passwordForAll = System.getenv("PW_FOR_ALL");
@@ -36,14 +36,14 @@ public class LoginPageTests {
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         loginPage = new LoginPage(driver, wait);
-        
+
         driver.get("http://www.saucedemo.com/");
     }
 
     @Test
     public void loginWithStandardUser() throws IOException {
         username = System.getenv("STANDARD_USER");
-     
+
         loginPage.loginProcess(username, passwordForAll);
 
         productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
@@ -53,7 +53,7 @@ public class LoginPageTests {
     @Test
     public void loginWithLockedOutUser() throws IOException {
         username = System.getenv("LOCKED_OUT_USER");
-        
+
         loginPage.loginProcess(username, passwordForAll);
 
         errorMessage = driver.findElement(By.xpath("//h3[@data-test='error']"));
@@ -63,7 +63,7 @@ public class LoginPageTests {
     @Test
     public void loginWithProblemUser() throws IOException {
         username = System.getenv("PROBLEM_USER");
-        
+
         loginPage.loginProcess(username, passwordForAll);
 
         productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
@@ -73,9 +73,9 @@ public class LoginPageTests {
     @Test
     public void loginWithPerformanceGlitchUser() throws IOException {
         username = System.getenv("PERFORMANCE_GLITCH_USER");
-        
+
         loginPage.loginProcess(username, passwordForAll);
-        
+
         productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
         Assertions.assertTrue(productTitle.isDisplayed(), "Products title is not displayed");
     }
@@ -83,7 +83,7 @@ public class LoginPageTests {
     @Test
     public void loginWithErrorUser() throws IOException {
         username = System.getenv("ERROR_USER");
-        
+
         loginPage.loginProcess(username, passwordForAll);
 
         productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
@@ -93,9 +93,9 @@ public class LoginPageTests {
     @Test
     public void loginWithVisualUser() throws IOException {
         username = System.getenv("VISUAL_USER");
-        
+
         loginPage.loginProcess(username, passwordForAll);
-        
+
 
         productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
         Assertions.assertTrue(productTitle.isDisplayed(), "Products title is not displayed");
@@ -106,5 +106,5 @@ public class LoginPageTests {
         if (driver != null) {
             driver.quit();
         }
-    }  
+    }
 }

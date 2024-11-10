@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class LoginPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
+
     public LoginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
@@ -18,33 +19,33 @@ public class LoginPage {
     private WebElement getSwagLabsTitle() {
         return driver.findElement(By.xpath("//a[text()='Swag Labs']"));
     }
-    
+
     private WebElement getUsernameInput() {
         return driver.findElement(By.id("user-name"));
     }
-    
+
     private WebElement getPasswordInput() {
         return driver.findElement(By.id("password"));
     }
-    
+
     private WebElement getLoginButton() {
         return driver.findElement(By.id("login-button"));
     }
-    
+
     private WebElement getUsernameList() {
         return driver.findElement(By.id("login_credentials"));
     }
-    
+
     private WebElement getPasswordList() {
         return driver.findElement(By.cssSelector("div.login_password"));
     }
 
     // Method to login process
     public void loginProcess(String username, String password) {
-        
+
         getUsernameInput().clear();
         getPasswordInput().clear();
-        
+
         getUsernameInput().sendKeys(username);
         getPasswordInput().sendKeys(password);
         getLoginButton().click();

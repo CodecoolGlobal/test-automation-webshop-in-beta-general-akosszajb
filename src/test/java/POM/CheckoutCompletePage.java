@@ -9,18 +9,18 @@ public class CheckoutCompletePage {
 
     private WebDriver driver;
     private WebDriverWait wait;
-    
+
     public CheckoutCompletePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
-    
+
     @FindBy(css = ".pony_express")
     private WebElement ponyExpressImage;
-    
+
     @FindBy(id = "back-to-products")
     private WebElement backHomeButton;
-    
+
     public boolean isPonyExpressImageDisplayed() {
         return ponyExpressImage.isDisplayed();
     }
