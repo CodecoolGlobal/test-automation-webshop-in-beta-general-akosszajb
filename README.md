@@ -1,33 +1,39 @@
 ## About the Project
-This is a learning project made for studying test automation. The SUT is a webshop and in this project we test standard UI elements and aswell as the workings of the webshop itself.
+This is a learning project made for studying test automation. The SUT is a web-shop and in this project we test standard UI elements and as well as the workings of the web-shop itself.
 Our goal in this project is to use our accumulated knowledge of Selenium and JUnit to test the project to the best of our abilities.
 
 
 ## Built With
--Java
--JUnit
--Selenium
--Maven
+- Java
+- JUnit
+- Selenium
+- Maven
 
 ## Getting Started
 
 ###The SUT
 The System Under Testing is found online at: https://www.saucedemo.com/
-it is a publically available site made for automated testing, there is no-need to set it up.
+it is a publicly available site made for automated testing, there is no-need to set it up.
 
 
-###The project
+### The project
 -Install and run tests:
 1. ** Clone this repository: **
 ```bash
 git clone https://github.com/CodecoolGlobal/test-automation-webshop-in-beta-general-akosszajb.git
 ```
 
-2. **Navigate to the folder and install dependencies and enviroment variables: **
+2. **Install dependencies and environment variables: **
 Since the testing site only accepts predetermined usernames and passwords for these to be added as they are
 ```bash
 set STANDARD_USER=standard_user
 set PW_FOR_ALL=secret_sauce
+set LOCKED_OUT_USER=locked_out_user
+set PROBLEM_USER=problem_user
+set PERFORMANCE_GLITCH_USER=performance_glitch_user
+set ERROR_USER=error_user
+set VISUAL_USER=visual_user
+
 ```
 Add your own preferred name and zip
 ```bash
@@ -39,7 +45,7 @@ set ZIP_CODE=yourPreferredZIP
 ```bash
 mvn clean install
 ```
-The install should run tests on startup, if it doesnt use:
+Clean install should run tests on startup, if it doesn't use:
 ```bash
 mvn test
 ```

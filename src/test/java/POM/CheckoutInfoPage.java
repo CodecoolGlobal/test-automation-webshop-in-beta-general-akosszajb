@@ -7,9 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class checkoutInfoPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class CheckoutInfoPage {
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     @FindBy(css = "div[class='checkout_info']")
     private WebElement checkoutInfoContainer;
@@ -23,13 +23,10 @@ public class checkoutInfoPage {
     @FindBy(id = "postal-code")
     private WebElement postalCodeInput;
 
-    @FindBy(id = "cancel")
-    private WebElement cancelButton;
-
     @FindBy(id = "continue")
     private WebElement continueButton;
 
-    public checkoutInfoPage(WebDriver driver, WebDriverWait wait) {
+    public CheckoutInfoPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
         PageFactory.initElements(driver, this);
@@ -50,8 +47,4 @@ public class checkoutInfoPage {
         continueButton.click();
     }
 
-    public void cancelForm() {
-        wait.until(ExpectedConditions.visibilityOf(checkoutInfoContainer));
-        cancelButton.click();
-    }
 }
