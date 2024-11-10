@@ -21,10 +21,6 @@ public class LoginPage {
         return driver.findElement(By.xpath("//h3[@data-test='error']"));
     }
 
-    private WebElement getSwagLabsTitle() {
-        return driver.findElement(By.xpath("//a[text()='Swag Labs']"));
-    }
-
     private WebElement getUsernameInput() {
         return driver.findElement(By.id("user-name"));
     }
@@ -37,13 +33,6 @@ public class LoginPage {
         return driver.findElement(By.id("login-button"));
     }
 
-    private WebElement getUsernameList() {
-        return driver.findElement(By.id("login_credentials"));
-    }
-
-    private WebElement getPasswordList() {
-        return driver.findElement(By.cssSelector("div.login_password"));
-    }
 
     // Method to login process
     public void loginProcess(String username, String password) {

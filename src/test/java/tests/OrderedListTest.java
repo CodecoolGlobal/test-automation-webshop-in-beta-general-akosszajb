@@ -38,7 +38,7 @@ public class OrderedListTest {
     @Test
     public void orderedListHighToLow() {
         String username = System.getenv("STANDARD_USER");
-        String password = System.getenv("STANDARD_PASSWORD");
+        String password = System.getenv("PW_FOR_ALL");
         loginPage.loginProcess(username,password);
         shopPage.selectPriceHighToLow();
 
@@ -51,7 +51,7 @@ public class OrderedListTest {
     @Test
     public void orderedListLowToHigh() {
         String username = System.getenv("STANDARD_USER");
-        String password = System.getenv("STANDARD_PASSWORD");
+        String password = System.getenv("PW_FOR_ALL");
         loginPage.loginProcess(username,password);
         shopPage.selectPriceLowToHigh();
 
@@ -64,7 +64,7 @@ public class OrderedListTest {
     @Test
     public void orderedListAToZ() {
         String username = System.getenv("STANDARD_USER");
-        String password = System.getenv("STANDARD_PASSWORD");
+        String password = System.getenv("PW_FOR_ALL");
         loginPage.loginProcess(username,password);
         shopPage.selectNameAToZ();
 
@@ -77,7 +77,7 @@ public class OrderedListTest {
     @Test
     public void orderedListZToA() {
         String username = System.getenv("STANDARD_USER");
-        String password = System.getenv("STANDARD_PASSWORD");
+        String password = System.getenv("PW_FOR_ALL");
         loginPage.loginProcess(username,password);
         shopPage.selectNameZToA();
 

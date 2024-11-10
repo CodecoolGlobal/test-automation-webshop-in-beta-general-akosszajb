@@ -17,19 +17,8 @@ public class CheckoutCompletePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = ".pony_express")
-    private WebElement ponyExpressImage;
-
     @FindBy(id = "back-to-products")
     private WebElement backHomeButton;
-
-    public boolean isPonyExpressImageDisplayed() {
-        return ponyExpressImage.isDisplayed();
-    }
-
-    public void clickBackHomeButton() {
-        backHomeButton.click();
-    }
 
     public WebElement getBackHomeButton() {
         return backHomeButton;

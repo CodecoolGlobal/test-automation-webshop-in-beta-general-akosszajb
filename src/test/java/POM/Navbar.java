@@ -17,17 +17,9 @@ public class Navbar {
     @FindBy(css = "nav[class='bm-item-list']")
     private WebElement navSideBarOpen;
 
-    @FindBy(id = "inventory_sidebar_link")
-    private WebElement inventoryLink;
-
-    @FindBy(id = "about_sidebar_link")
-    private WebElement aboutLink;
 
     @FindBy(id = "logout_sidebar_link")
     private WebElement logoutLink;
-
-    @FindBy(id = "reset_sidebar_link")
-    private WebElement resetLink;
 
     public Navbar(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -40,26 +32,10 @@ public class Navbar {
         reactMenuButton.click();
     }
 
-    public void clickInventoryLink() {
-        wait.until(ExpectedConditions.visibilityOf(navSideBarOpen));
-        inventoryLink.click();
-    }
-
-    public void clickAboutLink() {
-        wait.until(ExpectedConditions.visibilityOf(navSideBarOpen));
-        aboutLink.click();
-    }
 
     public void clickLogoutLink() {
         wait.until(ExpectedConditions.visibilityOf(navSideBarOpen));
         logoutLink.click();
-    }
-
-    public void clickResetLink() {
-        wait.until(ExpectedConditions.visibilityOf(reactMenuButton));
-        resetLink.click();
-        wait.until(ExpectedConditions.visibilityOf(logoutLink));
-        resetLink.click();
     }
 
 }

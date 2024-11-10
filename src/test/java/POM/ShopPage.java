@@ -28,9 +28,6 @@ public class ShopPage {
     @FindBy(id = "back-to-products")
     private WebElement backToProductsButton;
 
-    @FindBy(className = "product_sort_container")
-    private WebElement sortDropdown;
-
     @FindBy(xpath = "//option[@value='az']")
     private WebElement nameAToZOption;
 
@@ -51,9 +48,6 @@ public class ShopPage {
 
     @FindBy(id = "add-to-cart")
     private WebElement itemDetailsPageAddToCartButton;
-
-    @FindBy(id = "remove")
-    private WebElement itemDetailsRemoveFromCartButton;
 
     @FindBy(xpath = "//div[@data-test = 'inventory-item-name']")
     private WebElement itemDetailsNameText;
@@ -144,10 +138,6 @@ public class ShopPage {
         wait.until(ExpectedConditions.elementToBeClickable(itemDetailsPageAddToCartButton)).click();
     }
 
-    public void clickRemoveFromCartButtonOnItemDetailsPage() {
-        wait.until(ExpectedConditions.elementToBeClickable(itemDetailsRemoveFromCartButton)).click();
-    }
-
     public void clickBackToProductsButton() {
         wait.until(ExpectedConditions.elementToBeClickable(backToProductsButton)).click();
     }
@@ -156,8 +146,7 @@ public class ShopPage {
 
         try {
             WebElement cartIconElement = wait.until(ExpectedConditions.visibilityOf(shoppingCartIconNumbers));
-            String numberOfItems = cartIconElement.getText();
-            return numberOfItems;
+            return cartIconElement.getText();
 
         } catch (TimeoutException e) {
             return "0";

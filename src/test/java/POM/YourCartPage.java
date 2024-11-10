@@ -1,6 +1,5 @@
 package POM;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,16 +15,9 @@ public class YourCartPage {
     @FindBy(id = "checkout")
     private WebElement checkoutButton;
 
-    @FindBy(id = "continue-shopping")
-    private WebElement continueShoppingButton;
-
     @FindBy(css = "div[class='cart_list']")
     private WebElement cartList;
 
-    private WebElement removeFromCart(int location) {
-        return driver.findElement(By.cssSelector(String.format
-                ("html > body > div > div > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(%s) > div:nth-of-type(2) > div:nth-of-type(2) > button", location + 2)));
-    }
 
     public YourCartPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -37,16 +29,6 @@ public class YourCartPage {
         wait.until(ExpectedConditions.visibilityOf(cartList));
         checkoutButton.click();
 
-    }
-
-    public void goToContinueShopping() {
-        wait.until(ExpectedConditions.visibilityOf(cartList));
-        continueShoppingButton.click();
-    }
-
-    public void removeYourFromCart(int location) {
-        wait.until(ExpectedConditions.visibilityOf(cartList));
-        removeFromCart(location).click();
     }
 
 }
