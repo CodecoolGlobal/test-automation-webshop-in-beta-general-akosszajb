@@ -1,6 +1,6 @@
 package tests;
 
-import POM.loginPage;
+import POM.LoginPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +20,7 @@ public class LoginPageTests {
     private String username;
     private WebDriver driver;
     private WebDriverWait wait;
-    private loginPage _loginPage;
+    private LoginPage loginPage;
     private WebElement productTitle;
     WebElement errorMessage;
     private String passwordForAll;
@@ -35,7 +35,7 @@ public class LoginPageTests {
 
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        _loginPage = new loginPage(driver, wait);
+        loginPage = new LoginPage(driver, wait);
         
         driver.get("http://www.saucedemo.com/");
     }
@@ -44,7 +44,7 @@ public class LoginPageTests {
     public void loginWithStandardUser() throws IOException {
         username = System.getenv("STANDARD_USER");
      
-        _loginPage.loginProcess(username, passwordForAll);
+        loginPage.loginProcess(username, passwordForAll);
 
         productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
         Assertions.assertTrue(productTitle.isDisplayed(), "Products title is not displayed");
@@ -54,7 +54,7 @@ public class LoginPageTests {
     public void loginWithLockedOutUser() throws IOException {
         username = System.getenv("LOCKED_OUT_USER");
         
-        _loginPage.loginProcess(username, passwordForAll);
+        loginPage.loginProcess(username, passwordForAll);
 
         errorMessage = driver.findElement(By.xpath("//h3[@data-test='error']"));
         Assertions.assertTrue(errorMessage.isDisplayed(), "Error message is not displayed (Epic sadface: Sorry, this user has been locked out.)");
@@ -64,7 +64,7 @@ public class LoginPageTests {
     public void loginWithProblemUser() throws IOException {
         username = System.getenv("PROBLEM_USER");
         
-        _loginPage.loginProcess(username, passwordForAll);
+        loginPage.loginProcess(username, passwordForAll);
 
         productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
         Assertions.assertTrue(productTitle.isDisplayed(), "Products title is not displayed");
@@ -74,7 +74,7 @@ public class LoginPageTests {
     public void loginWithPerformanceGlitchUser() throws IOException {
         username = System.getenv("PERFORMANCE_GLITCH_USER");
         
-        _loginPage.loginProcess(username, passwordForAll);
+        loginPage.loginProcess(username, passwordForAll);
         
         productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
         Assertions.assertTrue(productTitle.isDisplayed(), "Products title is not displayed");
@@ -84,7 +84,7 @@ public class LoginPageTests {
     public void loginWithErrorUser() throws IOException {
         username = System.getenv("ERROR_USER");
         
-        _loginPage.loginProcess(username, passwordForAll);
+        loginPage.loginProcess(username, passwordForAll);
 
         productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));
         Assertions.assertTrue(productTitle.isDisplayed(), "Products title is not displayed");
@@ -94,7 +94,7 @@ public class LoginPageTests {
     public void loginWithVisualUser() throws IOException {
         username = System.getenv("VISUAL_USER");
         
-        _loginPage.loginProcess(username, passwordForAll);
+        loginPage.loginProcess(username, passwordForAll);
         
 
         productTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-test='title' and text()='Products']")));

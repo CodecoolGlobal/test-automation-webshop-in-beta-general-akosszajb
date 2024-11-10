@@ -1,7 +1,7 @@
 package tests;
 
-import POM.loginPage;
-import POM.navbar;
+import POM.LoginPage;
+import POM.Navbar;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,8 +16,8 @@ import java.time.Duration;
 public class LogoutTests {
     private WebDriver driver;
     private WebDriverWait wait;
-    private loginPage login;
-    private navbar navbar;
+    private LoginPage login;
+    private Navbar navbar;
 
     @BeforeEach
     public void setup(){
@@ -27,8 +27,8 @@ public class LogoutTests {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        login = new loginPage(driver,wait);
-        navbar = new navbar(driver,wait);
+        login = new LoginPage(driver,wait);
+        navbar = new Navbar(driver,wait);
     }
 
     @Test

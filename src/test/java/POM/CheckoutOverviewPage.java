@@ -6,11 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class checkoutOverviewPage {
+public class CheckoutOverviewPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
     
-    public checkoutOverviewPage(WebDriver driver, WebDriverWait wait) {
+    public CheckoutOverviewPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }

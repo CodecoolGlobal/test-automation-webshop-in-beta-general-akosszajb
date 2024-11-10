@@ -1,8 +1,8 @@
 package tests;
 
-import POM.loginPage;
-import POM.shopPage;
-import POM.yourCartPage;
+import POM.LoginPage;
+import POM.ShopPage;
+import POM.YourCartPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,9 +18,9 @@ public class ProductHandlingTests {
 
     private WebDriver driver;
     private WebDriverWait wait;
-    private loginPage loginPage;
-    private shopPage shopPage;
-    private yourCartPage yourCartPage;
+    private LoginPage loginPage;
+    private ShopPage shopPage;
+    private YourCartPage yourCartPage;
 
 
     @BeforeEach
@@ -40,11 +40,11 @@ public class ProductHandlingTests {
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 
-        loginPage = new loginPage(driver, wait);
+        loginPage = new LoginPage(driver, wait);
         
-        shopPage = new shopPage(driver, wait);
+        shopPage = new ShopPage(driver, wait);
         
-        yourCartPage = new yourCartPage(driver, wait);
+        yourCartPage = new YourCartPage(driver, wait);
         
         String u = System.getenv("STANDARD_USER");
         

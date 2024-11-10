@@ -5,12 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class checkoutCompletePage {
+public class CheckoutCompletePage {
 
     private WebDriver driver;
     private WebDriverWait wait;
     
-    public checkoutCompletePage(WebDriver driver, WebDriverWait wait) {
+    public CheckoutCompletePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }

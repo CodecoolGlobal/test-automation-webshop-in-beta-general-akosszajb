@@ -10,12 +10,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class shopPage {
+public class ShopPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
 
-    public shopPage(WebDriver driver, WebDriverWait wait) {
+    public ShopPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
         PageFactory.initElements(driver, this);

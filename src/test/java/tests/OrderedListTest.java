@@ -1,7 +1,7 @@
 package tests;
 
-import POM.shopPage;
-import POM.loginPage;
+import POM.ShopPage;
+import POM.LoginPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,12 +13,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class orderedListTest {
+public class OrderedListTest {
 
     private WebDriver driver;
     private WebDriverWait wait;
-    private loginPage loginPage;
-    private shopPage shopPage;
+    private LoginPage loginPage;
+    private ShopPage shopPage;
 
 
     @BeforeEach
@@ -29,8 +29,8 @@ public class orderedListTest {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        loginPage = new loginPage(driver, wait);
-        shopPage = new shopPage(driver, wait);
+        loginPage = new LoginPage(driver, wait);
+        shopPage = new ShopPage(driver, wait);
 
         driver.get("https://www.saucedemo.com/");
     }

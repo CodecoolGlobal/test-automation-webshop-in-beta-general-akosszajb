@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class yourCartPage {
+public class YourCartPage {
     private WebDriver driver;
     private WebDriverWait wait;
     
@@ -27,7 +27,7 @@ public class yourCartPage {
                 ("html > body > div > div > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(%s) > div:nth-of-type(2) > div:nth-of-type(2) > button", location+2)));
     }
 
-    public yourCartPage(WebDriver driver, WebDriverWait wait) {
+    public YourCartPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
         PageFactory.initElements(driver, this);

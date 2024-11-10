@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class navbar {
+public class Navbar {
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -29,7 +29,7 @@ public class navbar {
     @FindBy(id = "reset_sidebar_link")
     private WebElement resetLink;
 
-    public navbar(WebDriver driver, WebDriverWait wait) {
+    public Navbar(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
         PageFactory.initElements(driver, this);
