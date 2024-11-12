@@ -35,9 +35,9 @@ public class ProductHandlingTests {
         loginPage = new LoginPage(driver, wait);
         shopPage = new ShopPage(driver, wait);
 
-        String u = System.getenv("STANDARD_USER");
-        String pw = System.getenv("PW_FOR_ALL");
-        loginPage.loginProcess(u, pw);
+        String user = "standard_user";
+        String password = "secret_sauce";
+        loginPage.loginProcess(user, password);
 
     }
 

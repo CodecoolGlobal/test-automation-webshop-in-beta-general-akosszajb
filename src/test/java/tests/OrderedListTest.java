@@ -33,13 +33,13 @@ public class OrderedListTest {
         shopPage = new ShopPage(driver, wait);
 
         driver.get("https://www.saucedemo.com/");
+        String username = "standard_user";
+        String password = "secret_sauce";
+        loginPage.loginProcess(username,password);
     }
 
     @Test
     public void orderedListHighToLow() {
-        String username = System.getenv("STANDARD_USER");
-        String password = System.getenv("PW_FOR_ALL");
-        loginPage.loginProcess(username,password);
         shopPage.selectPriceHighToLow();
 
         String expected = "Sauce Labs Fleece Jacket";
@@ -50,9 +50,6 @@ public class OrderedListTest {
 
     @Test
     public void orderedListLowToHigh() {
-        String username = System.getenv("STANDARD_USER");
-        String password = System.getenv("PW_FOR_ALL");
-        loginPage.loginProcess(username,password);
         shopPage.selectPriceLowToHigh();
 
         String expected = "Sauce Labs Onesie";
@@ -63,9 +60,6 @@ public class OrderedListTest {
 
     @Test
     public void orderedListAToZ() {
-        String username = System.getenv("STANDARD_USER");
-        String password = System.getenv("PW_FOR_ALL");
-        loginPage.loginProcess(username,password);
         shopPage.selectNameAToZ();
 
         String expected = "Sauce Labs Backpack";
@@ -76,9 +70,6 @@ public class OrderedListTest {
 
     @Test
     public void orderedListZToA() {
-        String username = System.getenv("STANDARD_USER");
-        String password = System.getenv("PW_FOR_ALL");
-        loginPage.loginProcess(username,password);
         shopPage.selectNameZToA();
 
         String expected = "Test.allTheThings() T-Shirt (Red)";
