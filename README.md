@@ -28,7 +28,7 @@ git clone https://github.com/CodecoolGlobal/test-automation-webshop-in-beta-gene
 ```bash
 mvn clean install
 ```
-**Clean install should run tests on startup, if it doesn't use:**
+- Clean install should run tests on startup, if it doesn't use:
 ```bash
 mvn test
 ```
