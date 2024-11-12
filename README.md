@@ -17,7 +17,7 @@ it is a publicly available site made for automated testing, there is no-need to 
 
 
 ### The project
--Install and run tests:
+- Install and run tests:
 1. **Clone this repository:**
 ```bash
 git clone https://github.com/CodecoolGlobal/test-automation-webshop-in-beta-general-akosszajb.git
