@@ -11,24 +11,24 @@ Our goal in this project is to use our accumulated knowledge of Selenium and JUn
 
 ## Getting Started
 
-###The SUT
+### The SUT
 The System Under Testing is found online at: https://www.saucedemo.com/
 it is a publicly available site made for automated testing, there is no-need to set it up.
 
 
 ### The project
 -Install and run tests:
-1. ** Clone this repository: **
+1. ** Clone this repository:**
 ```bash
 git clone https://github.com/CodecoolGlobal/test-automation-webshop-in-beta-general-akosszajb.git
 ```
 
-2. **Install dependencies: **
+2. **Install dependencies:**
 
 ```bash
 mvn clean install
 ```
-Clean install should run tests on startup, if it doesn't use:
+**Clean install should run tests on startup, if it doesn't use:**
 ```bash
 mvn test
 ```
