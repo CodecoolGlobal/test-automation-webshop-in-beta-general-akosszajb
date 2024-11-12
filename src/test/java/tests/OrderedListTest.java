@@ -2,6 +2,7 @@ package tests;
 
 import POM.ShopPage;
 import POM.LoginPage;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +24,7 @@ public class OrderedListTest {
 
     @BeforeEach
     public void setup() {
+        Dotenv dotenv = Dotenv.load();
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
@@ -32,7 +34,9 @@ public class OrderedListTest {
         loginPage = new LoginPage(driver, wait);
         shopPage = new ShopPage(driver, wait);
 
-        driver.get("https://www.saucedemo.com/");
+        String url = dotenv.get("URL");
+        driver.get(url);
+
         String username = "standard_user";
         String password = "secret_sauce";
         loginPage.loginProcess(username,password);

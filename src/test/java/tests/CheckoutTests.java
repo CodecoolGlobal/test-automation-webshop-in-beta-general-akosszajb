@@ -1,6 +1,7 @@
 package tests;
 
 import POM.*;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,6 +29,7 @@ public class CheckoutTests {
 
     @BeforeEach
     public void setup(){
+        Dotenv dotenv = Dotenv.load();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
         options.addArguments("--start-maximized");
@@ -47,7 +49,8 @@ public class CheckoutTests {
         lastName = "lastname";
         zipCode = "1234";
 
-        driver.get("https://www.saucedemo.com/");
+        String url = dotenv.get("URL");
+        driver.get(url);
         loginPage.loginProcess(username, passwordForAll);
     }
 

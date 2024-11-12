@@ -2,6 +2,7 @@ package tests;
 
 import POM.LoginPage;
 import POM.ShopPage;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,6 +25,7 @@ public class LoginPageTests {
 
     @BeforeEach
     public void setup(){
+        Dotenv dotenv = Dotenv.load();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
         options.addArguments("--start-maximized");
@@ -34,7 +36,9 @@ public class LoginPageTests {
         shopPage = new ShopPage(driver, wait);
 
         passwordForAll = "secret_sauce";
-        driver.get("https://www.saucedemo.com/");
+
+        String url = dotenv.get("URL");
+        driver.get(url);
     }
 
     @Test

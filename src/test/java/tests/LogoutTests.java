@@ -2,6 +2,7 @@ package tests;
 
 import POM.LoginPage;
 import POM.Navbar;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,6 +22,7 @@ public class LogoutTests {
 
     @BeforeEach
     public void setup() {
+        Dotenv dotenv = Dotenv.load();
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
@@ -29,11 +31,13 @@ public class LogoutTests {
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         login = new LoginPage(driver, wait);
         navbar = new Navbar(driver, wait);
+
+        String url = dotenv.get("URL");
+        driver.get(url);
     }
 
     @Test
     public void logoutSuccess() {
-        driver.get("https://www.saucedemo.com/");
         login.loginProcess("standard_user", "secret_sauce");
         navbar.clickReactMenuButton();
         navbar.clickLogoutLink();
