@@ -23,24 +23,7 @@ it is a publicly available site made for automated testing, there is no-need to 
 git clone https://github.com/CodecoolGlobal/test-automation-webshop-in-beta-general-akosszajb.git
 ```
 
-2. **Install dependencies and environment variables: **
-Since the testing site only accepts predetermined usernames and passwords for these to be added as they are
-```bash
-set STANDARD_USER=standard_user
-set PW_FOR_ALL=secret_sauce
-set LOCKED_OUT_USER=locked_out_user
-set PROBLEM_USER=problem_user
-set PERFORMANCE_GLITCH_USER=performance_glitch_user
-set ERROR_USER=error_user
-set VISUAL_USER=visual_user
-
-```
-Add your own preferred name and zip
-```bash
-set FIRST_NAME=yourPreferredFirstName
-set LAST_NAME=yourPreferredLastName
-set ZIP_CODE=yourPreferredZIP
-```
+2. **Install dependencies: **
 
 ```bash
 mvn clean install
