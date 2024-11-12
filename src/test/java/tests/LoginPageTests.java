@@ -14,7 +14,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPageTests {
-    private String username;
     private WebDriver driver;
     private WebDriverWait wait;
     private LoginPage loginPage;
@@ -34,13 +33,13 @@ public class LoginPageTests {
         loginPage = new LoginPage(driver, wait);
         shopPage = new ShopPage(driver, wait);
 
-        passwordForAll = System.getenv("PW_FOR_ALL");
+        passwordForAll = "secret_sauce";
         driver.get("https://www.saucedemo.com/");
     }
 
     @Test
     public void loginWithStandardUser(){
-        username = System.getenv("STANDARD_USER");
+        String username = "standard_user";
 
         loginPage.loginProcess(username, passwordForAll);
 
@@ -49,7 +48,7 @@ public class LoginPageTests {
 
     @Test
     public void loginWithLockedOutUser(){
-        username = System.getenv("LOCKED_OUT_USER");
+        String username = "locked_out_user";
 
         loginPage.loginProcess(username, passwordForAll);
 
@@ -58,7 +57,7 @@ public class LoginPageTests {
 
     @Test
     public void loginWithProblemUser(){
-        username = System.getenv("PROBLEM_USER");
+        String username = "problem_user";
 
         loginPage.loginProcess(username, passwordForAll);
 
@@ -67,7 +66,7 @@ public class LoginPageTests {
 
     @Test
     public void loginWithPerformanceGlitchUser(){
-        username = System.getenv("PERFORMANCE_GLITCH_USER");
+        String username = "performance_glitch_user";
 
         loginPage.loginProcess(username, passwordForAll);
 
@@ -76,7 +75,7 @@ public class LoginPageTests {
 
     @Test
     public void loginWithErrorUser(){
-        username = System.getenv("ERROR_USER");
+        String username = "error_user";
 
         loginPage.loginProcess(username, passwordForAll);
 
@@ -85,7 +84,7 @@ public class LoginPageTests {
 
     @Test
     public void loginWithVisualUser(){
-        username = System.getenv("VISUAL_USER");
+        String username = "visual_user";
 
         loginPage.loginProcess(username, passwordForAll);
 

@@ -13,8 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class CheckoutTests {
-    private String username;
-    private String passwordForAll;
     private String firstName;
     private String lastName;
     private String zipCode;
@@ -43,18 +41,18 @@ public class CheckoutTests {
         checkoutOverviewPage = new CheckoutOverviewPage(driver, wait);
         checkoutCompletePage = new CheckoutCompletePage(driver, wait);
 
-        username = System.getenv("STANDARD_USER");
-        passwordForAll = System.getenv("PW_FOR_ALL");
-        firstName = System.getenv("FIRST_NAME");
-        lastName = System.getenv("LAST_NAME");
-        zipCode = System.getenv("ZIP_CODE");
+        String username = "standard_user";
+        String passwordForAll = "secret_sauce";
+        firstName = "firstname";
+        lastName = "lastname";
+        zipCode = "1234";
 
         driver.get("https://www.saucedemo.com/");
+        loginPage.loginProcess(username, passwordForAll);
     }
 
     @Test
     public void checkoutWithEmptyCartTest(){
-        loginPage.loginProcess(username, passwordForAll);
         shopPage.clickShoppingCartButton();
         yourCartPage.goToCheckout();
         checkoutInfoPage.fillForm(firstName, lastName, zipCode);
@@ -66,7 +64,6 @@ public class CheckoutTests {
 
     @Test
     public void checkoutWithOneItemInCart(){
-        loginPage.loginProcess(username, passwordForAll);
         shopPage.getAddToCartButtonByIndex(1);
         shopPage.clickShoppingCartButton();
         yourCartPage.goToCheckout();
@@ -79,7 +76,6 @@ public class CheckoutTests {
 
     @Test
     public void checkoutWithTwoItemInCart(){
-        loginPage.loginProcess(username, passwordForAll);
         shopPage.getAddToCartButtonByIndex(1);
         shopPage.getAddToCartButtonByIndex(2);
         shopPage.clickShoppingCartButton();

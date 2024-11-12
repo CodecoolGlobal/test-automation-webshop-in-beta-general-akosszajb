@@ -34,7 +34,7 @@ public class LogoutTests {
     @Test
     public void logoutSuccess() {
         driver.get("https://www.saucedemo.com/");
-        login.loginProcess(System.getenv("STANDARD_USER"), System.getenv("PW_FOR_ALL"));
+        login.loginProcess("standard_user", "secret_sauce");
         navbar.clickReactMenuButton();
         navbar.clickLogoutLink();
 
