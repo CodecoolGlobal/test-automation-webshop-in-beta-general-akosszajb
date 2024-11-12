@@ -3,7 +3,6 @@ package POM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -20,24 +19,26 @@ public class LoginPage {
         return driver.findElement(By.xpath("//h3[@data-test='error']"));
     }
 
-    @FindBy(id = "user-name")
-    private WebElement usernameInput;
+    private WebElement getUsernameInput() {
+        return driver.findElement(By.id("user-name"));
+    }
 
-    @FindBy(id = "password")
-    private WebElement passwordInput;
+    private WebElement getPasswordInput() {
+        return driver.findElement(By.id("password"));
+    }
 
-    @FindBy(id = "login-button")
-    private WebElement loginButton;
+    private WebElement getLoginButton() {
+        return driver.findElement(By.id("login-button"));
+    }
 
 
     public void loginProcess(String username, String password) {
-        usernameInput.clear();
-        passwordInput.clear();
+        getUsernameInput().clear();
+        getPasswordInput().clear();
 
-        usernameInput.sendKeys(username);
-        passwordInput.sendKeys(password);
-
-        loginButton.click();
+        getUsernameInput().sendKeys(username);
+        getPasswordInput().sendKeys(password);
+        getLoginButton().click();
     }
 
     public WebElement getErrorMessage() {
@@ -45,7 +46,7 @@ public class LoginPage {
     }
 
     public boolean isLoginPageVisible() {
-        wait.until(ExpectedConditions.visibilityOf(loginButton));
-        return loginButton.isDisplayed();
+        wait.until(ExpectedConditions.visibilityOf(getLoginButton()));
+        return getLoginButton().isDisplayed();
     }
 }
